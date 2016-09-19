@@ -19,14 +19,30 @@ public class BookShop {
 		
 		
 		Scanner scanner = new Scanner(System.in);
-		System.out.print("대여 하고 싶은 책의 번호를 입력하세요:");
+		System.out.print("대여 하고 싶은 책의 번호를 입력하세요:(1-10)");
 		int num = scanner.nextInt();
-		scanner.close();
 		
-		// 입력된 번호에 맞는 책을 찾아 대여 되었음(상태코드=0)을 체크 합니다.
+		books[num-1].rent();
 
 		
 		System.out.println("*****도서 정보 출력하기******");
 		displayBookInfo( books );
+		
+		scanner.close();
 	}
+
+	private static void displayBookInfo(Book[] books) {
+		String on = "재고 있음" ; 
+		String off = "대여중";
+		for(Book b:books){
+			System.out.print("책 제목:"+ b.title +", 작가 :"+b.author +",대여유무:");
+			if(b.stateCode == 0){
+				System.out.println(off);
+			}else{
+				System.out.println(on);
+			}
+
+		}
+	}
+	
 }

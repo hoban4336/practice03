@@ -13,10 +13,19 @@ public class Prob1 {
 	}
 	
 	public static char[] reverse(String str){
-		/* 구현코드 */
+		char[] tmp = str.toCharArray();
+		int length = tmp.length;
+		char[] result = new char[length];
+		
+		for(int i = 0 ; i<tmp.length ; i++){
+			result[i] = tmp[--length]; 
+		}
+		return result;
 	}
 	
 	public static void printCharArray(char[] array){
-		/* 구현코드 */
+		for(char c : array){
+			System.out.print(c);
+		}
 	}
 }
